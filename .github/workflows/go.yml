@@ -9,7 +9,11 @@ on:
 
 jobs:
   build:
-    runs-on: nscloud-ubuntu-22.04-amd64-8x16
+    runs-on:
+      - nscloud-ubuntu-22.04-amd64-8x16
+      - nscloud-exp-runner-tool-cache-50gb
+      - nscloud-cache-size-50gb
+      - nscloud-cache-tag-gha-demo-frostdb
     steps:
       - uses: actions/checkout@v2
 
@@ -17,6 +21,15 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: "1.20"
+
+      - name: Print Go environment variables
+        run: go env
+
+      - name: Setup Go cache
+        uses: namespacelabs/nscloud-cache-action@v1
+        with:
+          path: |
+            ~/.cache
 
       - name: Test
         run: go test -short -race -tags assert,debug -v ./...
