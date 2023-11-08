@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: nscloud-ubuntu-22.04-arm64-8x16
+    runs-on: nscloud-ubuntu-22.04-amd64-8x16
     steps:
       - uses: actions/checkout@v2
 

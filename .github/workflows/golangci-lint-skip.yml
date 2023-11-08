@@ -23,6 +23,6 @@ on:
 jobs:
   lint:
     name: lint
-    runs-on: nscloud-ubuntu-22.04-arm64-8x16
+    runs-on: nscloud-ubuntu-22.04-amd64-8x16
     steps:
       - run: 'echo "no golangci-lint required"'
