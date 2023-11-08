@@ -29,7 +29,8 @@ jobs:
         uses: namespacelabs/nscloud-cache-action@v1
         with:
           path: |
-            ~/.cache
+            ~/.cache/go-build
+            ~/go/pkg/mod
 
       - name: Test
         run: go test -short -race -tags assert,debug -v ./...
